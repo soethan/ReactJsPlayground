@@ -1,0 +1,29 @@
+const ProductList = (props) => {
+	return (
+    <ul>
+    	{props.prodList.map(p => <ProductDetails {...p} />)}
+    </ul>
+  );
+}
+
+const ProductDetails = (props) => {
+	return (
+  	<li key={props}>{props.name}</li>
+  );
+}
+
+class App extends React.Component {
+	state = {
+  	data: [
+    	{id: 1, name: "Product 1"},
+      {id: 2, name: "Product 2"},
+      {id: 3, name: "Product 3"}
+    ]
+  };
+  render() {
+  	return (
+    	<ProductList prodList={this.state.data} />
+    );
+  }
+}
+ReactDOM.render(<App />, mountNode);
